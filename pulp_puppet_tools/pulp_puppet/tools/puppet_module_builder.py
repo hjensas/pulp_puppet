@@ -320,7 +320,7 @@ def clean(options):
     :type options: optparse.Options
     """
     if options.url and options.clean:
-        path = os.path.join(options.working_dir, os.path.basename(options.url))
+        path = os.path.join(options.working_dir, os.path.basename(options.url).split('.')[0])
         shell('rm -rf %s' % path)
 
 
