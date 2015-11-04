@@ -227,6 +227,8 @@ def find_modules():
     metadata_status, metadata_output = shell('find . -name metadata.json')
 
     paths = modulefile_output.strip().split('\n') + metadata_output.strip().split('\n')
+    # Remove empty entries from the list, in case all modules use only Modulefile or only metadata.json
+    paths = [x for x in paths if x != '']
     for path in paths:
         path = path.strip()
         path_pieces = path.split('/')
